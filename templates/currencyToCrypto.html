@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<h1><a href="{{ url_for('toCurrency') }}">Crypto <i class="fa fa-refresh"></i> Exchanger</a></h1>
+<p>Currency</p>
+{{ form.currencySelect(class="inputbox") }}
+{{ form.currencyNum(class="inputbox", placeholder="Amount of currency...") }}
+{% if form.currencyNum.errors %}
+{{ form.currencyNum.errors[0] }}
+{% endif %}
+<p>Сryptocurrency</p>
+{{ form.cryptoSelect(class="inputbox") }}
+{{ form.cryptoNum(class="inputbox", placeholder="Amount of cryptocurrency...", readonly="readonly") }}
+{{ form.button(class="button", value="Convert") }}
+{% endblock %}
